@@ -31,7 +31,7 @@ class Bloom {
 
 class Shop: public Bloom {
 	protected:
-		int bottles;
+		int bottles, scents, drops;
 		char unique, size;
     public:
 
@@ -59,7 +59,7 @@ class Shop: public Bloom {
 		char uniqueChoice(){
 			while(1){
 				cout << "Do you want every bottle to be unique? (Y/N)" << endl;
-				cin << uniqueChoice;
+				cin >> uniqueChoice;
 				if (unique == 'Y' || unique == 'N')
 					return unique;
 				else
@@ -87,16 +87,37 @@ class Shop: public Bloom {
 				scents = scentAmount();
                 cout <<"---------------------------------------------------------\n";
                 scentMenu();
-                for(int i = 0; i < scents; i++){
-                	cin >> per[i];
+                for(int i = 0; i < scents; i++){ 
+					cout << "Enter the number for the scent you desire: ";
+					cin >> drops;
+                	switch (drops) {
+						case 1: 
+							peach += 1;
+							break;
+						case 2:
+							rose += 1;
+							break;
+						case 3:  
+							vanilla += 1;
+							break;
+						case 4:
+							musk += 1;
+							break;
+						case 5:
+							sandalwood += 1;
+							break;
+						default:
+							cout << "Invalid input";
+							i -= 1;
+					}
                 }
 			}
 		}
 		
 		void scentMenu(){
 			cout << "Make your own perfume...\n\n";
-            cout << "+-----+------------+\n"
-			cout << "| No. | Scent      |\n"
+            cout << "+-----+------------+\n";
+			cout << "| No. | Scent      |\n";
 			cout << "+-----+------------+\n";
 			cout << "| 1   | Peach      |\n";
 			cout << "+-----+------------+\n";
@@ -106,7 +127,7 @@ class Shop: public Bloom {
 			cout << "+-----+------------+\n";
 			cout << "| 4   | Musk       |\n";
 			cout << "+-----+------------+\n";
-			cout << "| 5   | Sandalwood |\n"
+			cout << "| 5   | Sandalwood |\n";
 			cout << "+-----+------------+\n";
 		}
 		
@@ -124,9 +145,9 @@ class Shop: public Bloom {
 			
 		char sizeChoice() {
 			while(1){
-				cout <<"-----------------------------------------------------------------------\n";
-                cout << "The size of the bootle..\nSmall(30ml)\nMedium(100)\nLarge(200)";
-                cin> > size;
+				cout << "-----------------------------------------------------------------------\n";
+                cout << "The size of the bootle..\nS: Small(30ml)\nM: Medium(100)\nL: Large(200)";
+                cin >> size;
                 if (size == 'S' || size == 'M' || size == 'L')
                 	return size;
                 else
