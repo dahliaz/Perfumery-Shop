@@ -78,7 +78,28 @@ class Shop: public Bloom {
 	                cout <<"---------------------------------------------------------\n";
                     scentMenu();
                     for(int i = 0; i < scents; i++){
-                    	cin >> per[i];
+                    	cout << "Enter the number for the scent you desire: ";
+						cin >> drops;
+						switch (drops) {
+							case 1: 
+								peach += 1;
+								break;
+							case 2:
+								rose += 1;
+								break;
+							case 3:  
+								vanilla += 1;
+								break;
+							case 4:
+								musk += 1;
+								break;
+							case 5:
+								sandalwood += 1;
+								break;
+							default:
+								cout << "Invalid input";
+								i -= 1;
+						}
                     }
 	            }
 			}
