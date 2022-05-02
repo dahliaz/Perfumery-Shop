@@ -15,7 +15,7 @@ using namespace std;
 class Bloom {
     protected:
         char size;
-        int peach, rose, vanilla, musk, sandalwood;
+        int peach, rose, vanilla, musk, sandalwood; //variables needed to multiply with prices of scents to get total price
 
         virtual void display() = 0;
     public:
@@ -29,20 +29,20 @@ class Bloom {
     }
 };
 
-class Shop: public Bloom {
+class Shop: public Bloom { 
 	protected:
 		int bottles, scents, drops;
 		char unique, size;
     	public:
 
-        	void display(){
+        	void display(){ //display welcome menu
             	cout << setw(43) << "***Welcome to our perfumery***"<<endl;
             	cout <<"---------------------------------------------------------\n";
             	cout << setw (37) << "Bloom Scents Menu"<<endl;
             	cout <<"---------------------------------------------------------\n";
         	}
         
-        	int bottleChoice() {
+        	int bottleChoice() { //get number of bottles
         		while(1){
         			cout << "How many perfume you want to buy? " << endl;
 	        	    	cin >> bottles;
@@ -54,7 +54,7 @@ class Shop: public Bloom {
 			}   
 		}
 		
-		char uniqueChoice(){
+		char uniqueChoice(){ //do they want multiple bottles of the same or different scents?
 			while(1){
 				cout << "Do you want every bottle to be unique? (Y/N)" << endl;
 				cin >> uniqueChoice;
@@ -65,7 +65,7 @@ class Shop: public Bloom {
 			}
 		}
 		
-		int scentChoice() {
+		int scentChoice() { //get 3 scents they want, the switch case will help us to find the total payment (excl. member discount)
 			unique = uniqueChoice();
 			if (unique == 'Y'){
 				for(int i = 0; i < bottles; i++){
@@ -139,7 +139,7 @@ class Shop: public Bloom {
 				}
 			}
 		}
-		void scentMenu(){
+		void scentMenu(){ // for users to input a number to enable switch case function --> should be utility function
 			cout << "Make your own perfume...\n\n";
         		cout << "+-----+------------+---------+\n";
 			cout << "| No. | Scent      | Price   |\n";
@@ -156,7 +156,7 @@ class Shop: public Bloom {
 			cout << "+-----+------------+---------+\n";
 		}
 		
-		int scentAmount(){
+		int scentAmount(){ //get amount scents they want
 			while(1){
 				cout << "How many scents you want to buy? (MAXIMUM 3 scents)\n";
 	        		cin >> scents;
@@ -168,7 +168,7 @@ class Shop: public Bloom {
 			
 		}
 			
-		char sizeChoice() {
+		char sizeChoice() { // get size of bottle
 			while(1){
 				cout << "-----------------------------------------------------------------------\n";
                 		cout << "The size of the bootle..\nS: Small(30ml)\nM: Medium(100)\nL: Large(200)";
