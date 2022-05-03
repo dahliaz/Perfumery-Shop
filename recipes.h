@@ -14,11 +14,10 @@
 
 using namespace std;
 
-class Bloom {
+class Perfume { // Variables needed to do payment transaction
 protected:
-	char size;
-  	int peach, rose, vanilla, musk, sandalwood; // variables needed to multiply with prices of scents to get
-	// total price
+	char size; //to get prize for the bottle size
+  	int peach, rose, vanilla, musk, sandalwood, bottles; // (to multiply scents with prices) + (multiply size with no. bottles)
 
   virtual void display() = 0;
 
@@ -37,10 +36,10 @@ public:
   	}
 };
 
-class Shop : public Bloom {
+class Brewery : public Perfume {
 protected:
-  	int bottles, scents, drops;
-  	char unique, size;
+  	int scents, drops;
+  	char unique;
 
   	void scentMenu()
 	{ 	// for users to input a number to enable switch case
