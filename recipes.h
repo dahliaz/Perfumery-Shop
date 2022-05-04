@@ -24,9 +24,9 @@ protected:
 public:
 	// * + default construc.
 	// ? in order for main to work.
-  	Bloom() {}
+  	Perfume() {}
 	// * + def. construc.
-  	Bloom(char s, int pea, int rs, int van, int mu, int sw) {
+  	Perfume(char s, int pea, int rs, int van, int mu, int sw) {
 		size = s;
 		peach = pea;
 		rose = rs;
@@ -143,7 +143,7 @@ public:
 			if (bottles <= 30)
 				return bottles;
 			else
-				cout << "Sorry we only can sell 30 bottles in a day!\n";
+				cout << "Sorry we can only sell 30 bottles in a day!\n";
 		}
   	}
 
