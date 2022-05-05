@@ -20,7 +20,8 @@ class MemberCheck: public Perfume {
  
  public:
  Member(){} // <-- i don't see a class called Member unless u mean MemberCheck 
-    Member(int m, char opt){
+    Member(char m)//changed m from int to char
+    {
         member = m;
     }
  
