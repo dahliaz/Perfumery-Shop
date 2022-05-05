@@ -19,7 +19,7 @@ class MemberCheck: public Perfume {
  char m; // <-- int -> char 
  
  public:
- MemberCheck(){} // <-- i don't see a class called Member unless u mean MemberCheck 
+ Member(){} // <-- i don't see a class called Member unless u mean MemberCheck 
     Member(int m, char opt){
         member = m;
     }
