@@ -12,65 +12,61 @@
 
 using namespace std;
 
-class Payment:public Perfume{
+//WARNING! U CAN SIMPLIFY THIS INTO JUST 2 CLASSES PAYMENT & MEMBERCHECK
+
+class Payment{ 
 private:
-    int member=0;
-    char option='o';
-    double base=1.5, sizePrice=0.0;
+    char member; // <-- int -> char 
+    /*char option = 'o'; <-- total unecessary*/
+    double base = 1.5, sizePrice, total;
 
 public:
-    Member(){}
-    Member(int m, char option){
-
-        m=member;
-        opt=option;
+    Member(){} // <-- i don't see a class called Member unless u mean MemberCheck 
+    Member(int m, char opt){
+        member = m;
     }
 
-    Amount():pea{5}, rs{7}, van{3.7},mu{2.4}, sw{2.7}
-
 };
 
 
-class MemberCheck:public Payment, public Perfume{
-    cout<<"Are you a member (Y/N)?: ";
-    cin>>opt;
-
+class MemberCheck: public Payment {
+    // func Member() and no need to input request if constructor is expecting an input from main
     do{
-        switch(opt)
+        switch(member)
     case 'Y':
-        cout<<"Welcome Member!\n You are eligible for a 10% members'only discount!"<<endl;
-        m=1;
+        cout << "Welcome Member!\n You are eligible for a 10% members'only discount!" << endl;
         break;
     case 'N':
-        cout<<"You are not a Member.\n Become  a member and get a 10% discount on your purchases!"<<endl;
-        m=-1;
+        cout << "You are not a Member.\n Become  a member and get a 10% discount on your purchases!" << endl;
         break;
     default:
-        cout<<"Invalid character is entered.Please try again."<<endl;
-        }while(opt !='Y' || opt !='N');//loop to repeat once invalid char is entered
+        cout << "Invalid character is entered.Please try again." << endl;
+        }while (member != 'Y' || member != 'N');//loop to repeat once invalid char is entered
 
-//end switch to choose member status
-
+        //end switch to choose member status
 };
 
-class Amount:public Payment, public Perfume{
-    if(size=='S')
-        sizePrice=25.00;
-    else if(size=='M')
-        sizePrice=75.00;
-    else if(size=='L')
-        sizePrice=125.00;
+class Amount: public Payment, public Perfume {
+// func sizeCost()
+    if(size == 'S')
+        sizePrice = 25.00;
+    else if(size == 'M')
+        sizePrice = 75.00;
+    else if(size == 'L')
+        sizePrice = 125.00;
 //price assigned to size
- 
-Total= peach+ rose+vanilla+musk+sandalwood+base; //price including scents calculated
 
-Total+=sizePrice; //price including size calculated
+//func totalCalc() & i've just embedded the prices into the formula 
+total = (5*peach) + (7*rose) + (3.7*vanilla) + (2.4*musk) + (2.7*sandalwood) + base; //price including scents calculated
 
-Total *= bottles; //total price of one bottle multiplied by how many bottles bought
+total += sizePrice; //price including size calculated
 
-    if(m=1)
+total *= bottles; //total price of one bottle multiplied by how many bottles bought
+
+//func Discount()
+    if(m = 'Y')
         return Total*0.9;
-    else if (m=-1)
+    else
         return Total;
 
 //if member then discount applicable
